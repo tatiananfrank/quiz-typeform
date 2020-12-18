@@ -403,3 +403,48 @@
 }
 
 /* END OF Buttons visibility */
+
+.thanks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+}
+
+.thanks-img {
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.thanks-text {
+    margin-bottom: .75rem;
+
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--headings-text-color);
+    text-align: center;
+}
+
+@media(max-width: 992px) {
+    .card-input {
+        font-size: 25px;
+    }
+
+    .card:not(.card_without_number) .card-title {
+        padding-left: 40px;
+    }
+
+    .card:not(.card_without_number) .card-number {
+        left: 0;
+    }
+
+    .card-radio-text {
+        max-width: 75%;
+    }
+
+    .footer-row {
+        right: 4%;
+    }
+}
