@@ -17,7 +17,7 @@
 
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-10 col-xl-8 col_centered">
-            <form class="form" action="#" method="post">
+            <form class="form" action="action.php" method="post">
 
               <div class="card card_active card_without_number" id="greeting">
 								<div class="card-body">
@@ -39,7 +39,7 @@
                     Как вас зовут? *
                   </h2>
                   
-                  <input class="card-input" type="text" placeholder="Напишите ответ здесь..." required>
+                  <input class="card-input" type="text" name="user_name_input" placeholder="Напишите ответ здесь..." required>
 
                   <div class="btn-block">
                     <a href="#" class="btn btn-primary">
@@ -64,7 +64,7 @@
                   </h2>
                   
                   <label class="card-radio-label">
-                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_1" required>
+                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_1" value="Я вкладываюсь в маркетинг, но продажи не растут" required>
                     <span class="card-radio-letter">A</span>
                     <span class="card-radio-text">Я вкладываюсь в маркетинг, но продажи не растут</span>
                     <span class="card-radio-check">
@@ -72,7 +72,7 @@
                     </span>
                   </label>
                   <label class="card-radio-label">
-                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_2" required>
+                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_2" value="У меня слишком дорогие лиды" required>
                     <span class="card-radio-letter">B</span>
                     <span class="card-radio-text">У меня слишком дорогие лиды</span>
                     <span class="card-radio-check">
@@ -80,7 +80,7 @@
                     </span>
                   </label>
                   <label class="card-radio-label">
-                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_3" required>
+                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_3" value="Приходят некачественные лиды, отдел продаж тратит время на отсев" required>
                     <span class="card-radio-letter">C</span>
                     <span class="card-radio-text">Приходят некачественные лиды, отдел продаж тратит время на отсев</span>
                     <span class="card-radio-check">
@@ -88,7 +88,7 @@
                     </span>
                   </label>
                   <label class="card-radio-label">
-                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_4" required>
+                    <input class="card-radio visually-hidden" type="radio" name="problem" id="problem_4" value="У меня просто есть запрос на качественный дизайн и/или маркетинговую упаковку" required>
                     <span class="card-radio-letter">D</span>
                     <span class="card-radio-text">У меня просто есть запрос на качественный дизайн и/или маркетинговую упаковку</span>
                     <span class="card-radio-check">
@@ -162,7 +162,7 @@
                     Тогда не будем терять ваше время. Оставьте свой телефон и мы перезвоним вам в ближайшее время, чтобы назначить встречу-созвон. Это обязательный вопрос *
                   </h2>
                   
-                  <input class="card-input" type="tel" placeholder="8 (912) 345-67-89" required>
+                  <input class="card-input" type="tel" name="user_phone_input" placeholder="8 (912) 345-67-89" required>
 
                   <div class="btn-block">
                     <!-- <a href="#" class="btn btn-primary">Отправить</a> -->
