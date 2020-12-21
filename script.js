@@ -5,8 +5,8 @@ var cards_length = cards.length;
 var cases = {
     "problem_1": [q3, q6, q7, q_finish],
     "problem_2": [q4, q6, q7, q_finish],
-    "problem_3": [q_finish],
-    "problem_4": [q5, q7, q_finish]
+    "problem_3": [q5, q7, q_finish],
+    "problem_4": [q_finish]
 };
 
 //Selected in q2 path
