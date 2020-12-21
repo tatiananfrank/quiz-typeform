@@ -1,6 +1,18 @@
 var cards = $(".card");
 var cards_length = cards.length;
 
+// greeting -> q1 -> q2 = cases
+var cases = {
+    "problem_1": [q3, q6, q7, q_finish],
+    "problem_2": [q4, q6, q7, q_finish],
+    "problem_3": [q_finish],
+    "problem_4": [q5, q7, q_finish]
+};
+
+//Selected in q2 path
+var branch;
+
+
 $(document).ready(function() {
     //Prevents form submit by clicking enter
     $(window).keydown(function(event){
@@ -15,7 +27,7 @@ $(document).ready(function() {
         /* event.preventDefault(); */
 
         var active_card = $(".card_active");
-        if(active_card.attr("id") === "q5") {
+        if(active_card.attr("id") === "q_finish") {
             //Changes value in progress bar
             progress(66, 33);
          }
@@ -24,7 +36,6 @@ $(document).ready(function() {
     $(".card a.btn").click(function(event) {
         event.preventDefault();
 
-        //Change active card
         var active_card = $(".card_active");
 
         //Saves user name
@@ -32,16 +43,23 @@ $(document).ready(function() {
             var name = active_card.find("input").val(); 
             
             $("#hello_name").html(name);
+            $("#hello_name_2").html(name);
 
             //Changes value in progress bar
             progress(100, 50);
         }
 
-        var active_index = cards.index(active_card);
-        if(active_index + 1 < cards_length) {
-            active_card.removeClass("card_active");
-            cards.get(active_index + 1).classList.add("card_active");
+        //Changes active card (selected path or simply next card)
+        if(branch) {
+            branch[1] += 1;
+            var next_card = cases[branch[0]][branch[1]];
+            var next_card_index = cards.index(next_card);
+
+            nextCard(active_card, next_card_index, true);
+        } else {
+            nextCard(active_card, 1, false);
         }
+        
 
         /* if(active_index === 0) {
             $("#prev_btn")[0].classList.remove("control-btn_disabled");
@@ -57,6 +75,7 @@ $(document).ready(function() {
         } */
     });
 
+    //Shows/hides button on input
     $("input.card-input").on("input", function(event) {
         if($(this).val()) {
             $(".card_active .btn-block")[0].classList.add("btn-block_shown");
@@ -65,6 +84,7 @@ $(document).ready(function() {
         }
     });
 
+    //q2
     $(".card-radio-label").click(function(event) {
         event.stopPropagation();
         event.preventDefault();
@@ -76,14 +96,19 @@ $(document).ready(function() {
         $(this)[0].classList.add("card-radio-label_active");
 
         $(this).find("input").prop("checked", true);
+        
+        var id = $(this).find("input").attr("id"); //Selected radio button
 
         var active_card = $(".card_active");
-
-        //Change active card
+        
+        //Finds next card
+        var el = cases[id];
+        var next_card_index = cards.index(el[0]);
+        branch = [id, 0];
+        
         setTimeout(function() {
-            var active_index = cards.index(active_card);
-            active_card.removeClass("card_active");
-            cards.get(active_index + 1).classList.add("card_active");
+            //Changes active card
+            nextCard(active_card, next_card_index, true);
         }, 700);
 
         if(active_card.attr("id") === "q2") {
@@ -148,4 +173,18 @@ function progress(px, proc) {
     // name 50% - 100px
     // radio 17% - 34px
     // phone 33% - 66px
+}
+
+//Changes active card
+function nextCard(active_card, n, q2) {
+    var active_index = cards.index(active_card);
+
+    if(q2) {
+        n -= active_index;
+    }
+
+    if(active_index + n < cards_length) {
+        active_card.removeClass("card_active");
+        cards.get(active_index + n).classList.add("card_active");
+    }
 }

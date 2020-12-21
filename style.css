@@ -362,10 +362,12 @@
     transition: all 1.2s ease;
 
     transform: translateY(-200vh);
+    visibility: hidden;
 }
 
 .card_active {
     transform: none;
+    visibility: visible;
 }
 
 /* .card:not(.card_active) */
@@ -373,11 +375,11 @@
     transform: translateY(200vh);
 }
 
-.footer-row {
+/* .footer-row {
     position: absolute;
     bottom: 0;
     right: 2%;
-}
+} */
 
 /* END OF Card positions */
 
@@ -444,7 +446,7 @@
         max-width: 75%;
     }
 
-    .footer-row {
+    /* .footer-row {
         right: 4%;
-    }
+    } */
 }
