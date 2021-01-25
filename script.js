@@ -22,6 +22,14 @@ $(document).ready(function() {
         }
     });
 
+    //Mask for user phone input
+    var phoneInput = document.getElementById('phone_input');
+    var maskOptions = {
+        mask: '+{7} (000) 000-00-00'
+    };
+    var mask = IMask(phoneInput, maskOptions);
+    
+    
     $(".form").submit(function(event) {
         var activeCard = $(".card_active");
         if(activeCard.attr("id") === "q_finish") {
