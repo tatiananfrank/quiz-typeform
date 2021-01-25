@@ -43,7 +43,7 @@ $(document).ready(function() {
         //Changes active card (selected path or simply next card)
         if(selectedPath) {
             selectedPath[1] += 1;
-            var nextCard = cases[selectedPath[0]][selectedPath[1]];
+            var nextCard = paths[selectedPath[0]][selectedPath[1]];
             var nextCardIndex = cards.index(nextCard);
 
             showNextCard(cards, activeCard, nextCardIndex, true);
