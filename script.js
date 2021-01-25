@@ -95,7 +95,7 @@ $(document).ready(function() {
 
 
 //Changes value in progress bar
-function progress(px, proc) {
+function changeProgress(px, proc) {
     var perc = $("#perc_line").css("width");
     perc = perc.replace("px", "");
     perc = Number(perc) + px;
